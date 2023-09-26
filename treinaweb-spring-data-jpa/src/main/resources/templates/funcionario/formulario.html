@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+	<title>Editar Carteira</title>
+</head>
+
+<body>
+	<main>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card">
+					<!-- /.card-header -->
+					<!-- form start -->
+					<form method="POST" th:object="${funcionario}">
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" <div
+							class="card-body">
+						<fieldset>
+							<legend>Dados Pessoais</legend>
+
+							<input type="hidden" th:field="*{id}">
+
+							<div class="row">
+								<div class="col-md-6 col-sm-12">
+									<div class="form-group">
+										<label for="nome">Nome</label>
+										<input type="text" class="form-control" placeholder="Mariane Josefa Gonçalves"
+											th:field="*{nome}">
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-12">
+									<div class="form-group">
+										<label for="cpf">CPF</label>
+										<input type="text" class="form-control" placeholder="401.447.368-61"
+											th:field="*{cpf}">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-6 col-sm-12">
+									<div class="form-group">
+										<label for="telefone">Telefone</label>
+										<input type="text" class="form-control" placeholder="(85) 99856-6603"
+											th:field="*{telefone}">
+									</div>
+								</div>
+								<div class="col-md-6 col-sm-12">
+									<div class="form-group">
+										<label for="email">E-mail</label>
+										<input type="email" class="form-control" placeholder="mariane@exemplo.com"
+											th:field="*{email}">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4 col-sm-12">
+									<div class="form-group">
+										<label for="dataNascimento">Data de Nascimento</label>
+										<input type="date" class="form-control" th:field="*{dataNascimento}">
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-12">
+									<div class="form-group">
+										<label for="dataAdmissao">Data de Admissão</label>
+										<input type="date" class="form-control" th:field="*{dataAdmissao}">
+									</div>
+								</div>
+								<div class="col-md-4 col-sm-12">
+									<div class="form-group">
+										<label for="dataDemissao">Data de Demissão</label>
+										<input type="date" class="form-control" th:field="*{dataDemissao}">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label>Cargo</label>
+										<select th:field="*{cargo}" class="form-control" style="width: 100%;">
+											<option th:each="cargo : ${cargos}" th:text="${cargo.nome}"
+												th:value="${cargo.id}">Desenvolvedor(a) Front End Jr</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+				</div>
+				<!-- /.card-body -->
+
+				<div class="card-footer">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+				</form>
+			</div>
+		</div>
+		</div>
+	</main>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
